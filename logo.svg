@@ -1,12 +1,145 @@
-<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-    <!-- Ultra-minimal Lolita logo -->
-    <path d="M 25 30 
-             C 20 40, 20 70, 25 80 
-             L 75 80 
-             C 80 70, 80 40, 75 30 
-             C 65 25, 35 25, 25 30 Z" 
-          fill="none" stroke="#333" stroke-width="2"/>
+<svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <!-- More saturated background gradient -->
+        <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#FFB6D9"/> <!-- Hot Pink Tint -->
+            <stop offset="50%" stop-color="#C9E4FF"/> <!-- Baby Blue -->
+            <stop offset="100%" stop-color="#FFE5F1"/> <!-- Pink Lace -->
+        </linearGradient>
+        
+        <!-- Frame gradient with better contrast -->
+        <linearGradient id="frameGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#FF69B4"/> <!-- Hot Pink -->
+            <stop offset="100%" stop-color="#FF1493"/> <!-- Deep Pink -->
+        </linearGradient>
+        
+        <!-- High contrast silhouette -->
+        <linearGradient id="silhouetteGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#2C1810"/> <!-- Dark Brown -->
+            <stop offset="100%" stop-color="#4A2511"/> <!-- Rich Brown -->
+        </linearGradient>
+        
+        <!-- Soft glow effect -->
+        <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur"/>
+            <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 15 -5" result="glow"/>
+            <feBlend in="SourceGraphic" in2="glow" mode="soft-light"/>
+        </filter>
+        
+        <!-- Lace pattern for the frame -->
+        <pattern id="lacePattern" width="40" height="40" patternUnits="userSpaceOnUse">
+            <circle cx="20" cy="20" r="5" fill="#FF1493" opacity="0.4"/>
+            <circle cx="10" cy="10" r="3" fill="#FF1493" opacity="0.4"/>
+            <circle cx="30" cy="10" r="3" fill="#FF1493" opacity="0.4"/>
+            <circle cx="10" cy="30" r="3" fill="#FF1493" opacity="0.4"/>
+            <circle cx="30" cy="30" r="3" fill="#FF1493" opacity="0.4"/>
+        </pattern>
+    </defs>
     
-    <!-- Simple bow -->
-    <circle cx="50" cy="30" r="5" fill="#8b0000"/>
+    <!-- Background -->
+    <rect width="400" height="400" fill="url(#bgGradient)"/>
+    
+    <!-- Decorative frame (behind the silhouette) -->
+    <rect x="40" y="40" width="320" height="320" rx="20" fill="none" stroke="url(#frameGradient)" stroke-width="10" opacity="0.9"/>
+    <rect x="40" y="40" width="320" height="320" rx="20" fill="none" stroke="url(#lacePattern)" stroke-width="10" opacity="0.6"/>
+    
+    <!-- Decorative corner elements -->
+    <g opacity="0.9">
+        <!-- Top-left corner -->
+        <path d="M40,40 Q60,30 80,40" fill="none" stroke="#FF1493" stroke-width="4"/>
+        <path d="M40,40 Q30,60 40,80" fill="none" stroke="#FF1493" stroke-width="4"/>
+        
+        <!-- Top-right corner -->
+        <path d="M360,40 Q340,30 320,40" fill="none" stroke="#FF1493" stroke-width="4"/>
+        <path d="M360,40 Q370,60 360,80" fill="none" stroke="#FF1493" stroke-width="4"/>
+        
+        <!-- Bottom-left corner -->
+        <path d="M40,360 Q60,370 80,360" fill="none" stroke="#FF1493" stroke-width="4"/>
+        <path d="M40,360 Q30,340 40,320" fill="none" stroke="#FF1493" stroke-width="4"/>
+        
+        <!-- Bottom-right corner -->
+        <path d="M360,360 Q340,370 320,360" fill="none" stroke="#FF1493" stroke-width="4"/>
+        <path d="M360,360 Q370,340 360,320" fill="none" stroke="#FF1493" stroke-width="4"/>
+    </g>
+    
+    <!-- Lolita fashion silhouette -->
+    <g transform="translate(200, 200)" filter="url(#softGlow)">
+        <!-- Bell-shaped JSK dress with petticoat -->
+        <path d="M-60,20 Q-65,40 -70,60 L-75,90 L75,90 L70,60 Q65,40 60,20 Q55,0 50,-10 L-50,-10 Q-55,0 -60,20 Z" 
+              fill="url(#silhouetteGradient)"/>
+        
+        <!-- Dress bodice -->
+        <path d="M-30,-10 L-40,20 L40,20 L30,-10 Q20,-20 0,-22 Q-20,-20 -30,-10 Z" 
+              fill="url(#silhouetteGradient)"/>
+        
+        <!-- White apron/pinafore detail -->
+        <path d="M-25,0 L-30,30 Q0,40 30,30 L25,0 Q15,-8 0,-10 Q-15,-8 -25,0 Z" 
+              fill="#FFFFFF" opacity="0.85"/>
+        
+        <!-- Puffed sleeves -->
+        <ellipse cx="-35" cy="0" rx="15" ry="18" fill="url(#silhouetteGradient)"/>
+        <ellipse cx="35" cy="0" rx="15" ry="18" fill="url(#silhouetteGradient)"/>
+        
+        <!-- Head -->
+        <circle cx="0" cy="-40" r="22" fill="url(#silhouetteGradient)"/>
+        
+        <!-- Twin tails / pigtails hairstyle -->
+        <ellipse cx="-25" cy="-35" rx="10" ry="20" fill="url(#silhouetteGradient)"/>
+        <ellipse cx="25" cy="-35" rx="10" ry="20" fill="url(#silhouetteGradient)"/>
+        
+        <!-- Hair ribbons/bows -->
+        <path d="M-35,-40 Q-45,-35 -40,-25 Q-35,-30 -30,-35 Q-35,-40 -35,-40 Z" fill="#FF1493"/>
+        <path d="M35,-40 Q45,-35 40,-25 Q35,-30 30,-35 Q35,-40 35,-40 Z" fill="#FF1493"/>
+        
+        <!-- Large decorative headbow -->
+        <path d="M-15,-60 Q-25,-65 -30,-55 L-20,-50 L-10,-60 L0,-55 L10,-60 L20,-50 L30,-55 Q25,-65 15,-60 Q10,-70 0,-72 Q-10,-70 -15,-60 Z" 
+              fill="#FF1493" opacity="0.9"/>
+        
+        <!-- Lace collar -->
+        <ellipse cx="0" cy="-20" rx="18" ry="6" fill="#FFFFFF" opacity="0.9"/>
+        
+        <!-- Ruffle details on skirt -->
+        <path d="M-70,60 Q-60,55 -50,60 Q-40,55 -30,60 Q-20,55 -10,60 Q0,55 10,60 Q20,55 30,60 Q40,55 50,60 Q60,55 70,60" 
+              fill="none" stroke="#FFFFFF" stroke-width="3" opacity="0.7"/>
+        
+        <!-- Heart accessory -->
+        <path d="M-5,-32 Q-10,-37 -5,-42 Q0,-37 5,-42 Q10,-37 5,-32 Q0,-27 -5,-32 Z" fill="#FF69B4"/>
+    </g>
+    
+    <!-- Floating hearts animation (like sprinkles!) -->
+    <g opacity="0.85">
+        <path d="M100,100 Q110,90 100,80 Q90,90 100,100 Z" fill="#FF1493">
+            <animate attributeName="opacity" values="0.7;1;0.7" dur="3s" repeatCount="indefinite"/>
+            <animateTransform attributeName="transform" type="translate" values="0,0;0,-10;0,0" dur="4s" repeatCount="indefinite"/>
+        </path>
+        <path d="M300,150 Q310,140 300,130 Q290,140 300,150 Z" fill="#FF69B4">
+            <animate attributeName="opacity" values="0.7;1;0.7" dur="4s" repeatCount="indefinite"/>
+            <animateTransform attributeName="transform" type="translate" values="0,0;0,-15;0,0" dur="5s" repeatCount="indefinite"/>
+        </path>
+        <path d="M150,250 Q160,240 150,230 Q140,240 150,250 Z" fill="#FF1493">
+            <animate attributeName="opacity" values="0.7;1;0.7" dur="5s" repeatCount="indefinite"/>
+            <animateTransform attributeName="transform" type="translate" values="0,0;0,-12;0,0" dur="6s" repeatCount="indefinite"/>
+        </path>
+        <path d="M320,280 Q330,270 320,260 Q310,270 320,280 Z" fill="#FF69B4">
+            <animate attributeName="opacity" values="0.8;1;0.8" dur="3.5s" repeatCount="indefinite"/>
+            <animateTransform attributeName="transform" type="translate" values="0,0;0,-8;0,0" dur="4.5s" repeatCount="indefinite"/>
+        </path>
+        <path d="M80,200 Q90,190 80,180 Q70,190 80,200 Z" fill="#FF1493">
+            <animate attributeName="opacity" values="0.75;1;0.75" dur="4.5s" repeatCount="indefinite"/>
+            <animateTransform attributeName="transform" type="translate" values="0,0;0,-14;0,0" dur="5.5s" repeatCount="indefinite"/>
+        </path>
+    </g>
+    
+    <!-- Text area with proper spacing -->
+    <rect x="80" y="320" width="240" height="70" rx="10" fill="#FFFFFF" opacity="0.8" filter="url(#softGlow)"/>
+    
+    <!-- Main title -->
+    <text x="200" y="350" text-anchor="middle" font-family="Georgia, serif" font-size="26" fill="#2C1810" font-weight="bold">
+        Sweet Elegance
+    </text>
+    
+    <!-- Subtitle -->
+    <text x="200" y="375" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#FF1493" font-style="italic">
+        Lolita Boutique
+    </text>
 </svg>
