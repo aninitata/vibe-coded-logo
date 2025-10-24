@@ -1,98 +1,186 @@
 <svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
     <defs>
-        <!-- Clean gradient -->
+        <!-- Enhanced gradient with more depth -->
         <linearGradient id="mainGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#FF00FF"/>
-            <stop offset="100%" stop-color="#00FFFF"/>
+            <stop offset="0%" stop-color="#FF4DFF"/>
+            <stop offset="50%" stop-color="#B300B3"/>
+            <stop offset="100%" stop-color="#00E6E6"/>
         </linearGradient>
         
-        <!-- Subtle glow effect -->
-        <filter id="softGlow" height="300%" width="300%" x="-75%" y="-75%">
+        <!-- Glass morphism effect -->
+        <filter id="glassEffect" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur"/>
+            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="glass"/>
+        </filter>
+        
+        <!-- Enhanced glow with multiple colors -->
+        <filter id="multiGlow" height="300%" width="300%" x="-75%" y="-75%">
             <feMorphology operator="dilate" radius="2" in="SourceAlpha" result="thicken" />
-            <feGaussianBlur in="thicken" stdDeviation="8" result="blurred" />
-            <feFlood flood-color="#FF00FF" flood-opacity="0.5" result="glowColor" />
-            <feComposite in="glowColor" in2="blurred" operator="in" result="softGlow_colored" />
+            <feGaussianBlur in="thicken" stdDeviation="10" result="blurred" />
+            <feFlood flood-color="#FF4DFF" flood-opacity="0.4" result="glowColor1" />
+            <feComposite in="glowColor1" in2="blurred" operator="in" result="softGlow1" />
+            <feFlood flood-color="#00E6E6" flood-opacity="0.4" result="glowColor2" />
+            <feComposite in="glowColor2" in2="blurred" operator="in" result="softGlow2" />
             <feMerge>
-                <feMergeNode in="softGlow_colored"/>
+                <feMergeNode in="softGlow1"/>
+                <feMergeNode in="softGlow2"/>
                 <feMergeNode in="SourceGraphic"/>
             </feMerge>
         </filter>
         
-        <!-- Subtle pattern for background -->
-        <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1a1a2e" stroke-width="1" opacity="0.2"/>
+        <!-- Organic pattern for background -->
+        <pattern id="organicGrid" width="80" height="80" patternUnits="userSpaceOnUse">
+            <path d="M 0 40 Q 20 20 40 40 T 80 40 M 40 0 Q 60 20 40 40 T 40 80" fill="none" stroke="#2a2a4e" stroke-width="1.5" opacity="0.15"/>
         </pattern>
+        
+        <!-- Fluid blob shape -->
+        <clipPath id="blobClip">
+            <path d="M200,120 Q260,100 280,160 Q300,220 260,280 Q220,340 160,320 Q100,300 120,240 Q140,180 200,120 Z" />
+        </clipPath>
     </defs>
     
-    <!-- Background -->
+    <!-- Background with depth -->
     <rect width="400" height="400" fill="#0a0a16"/>
-    <rect width="400" height="400" fill="url(#grid)"/>
+    <rect width="400" height="400" fill="url(#organicGrid)"/>
     
-    <!-- Central design element - simplified lens -->
-    <circle cx="200" cy="200" r="120" fill="none" stroke="url(#mainGradient)" stroke-width="2" opacity="0.8">
-        <animate attributeName="r" values="120;125;120" dur="4s" repeatCount="indefinite"/>
+    <!-- Glass morphism background element -->
+    <rect x="50" y="50" width="300" height="300" rx="30" fill="rgba(255,255,255,0.05)" filter="url(#glassEffect)" opacity="0.7"/>
+    
+    <!-- Central design element - fluid blob shape -->
+    <g clip-path="url(#blobClip)">
+        <!-- Animated gradient background -->
+        <rect x="80" y="80" width="240" height="240" fill="url(#mainGradient)" opacity="0.3">
+            <animate attributeName="opacity" values="0.3;0.6;0.3" dur="8s" repeatCount="indefinite"/>
+        </rect>
+        
+        <!-- Particle field -->
+        <g opacity="0.7">
+            <circle cx="180" cy="160" r="1.5" fill="#FF4DFF">
+                <animate attributeName="cx" values="180;190;180" dur="4s" repeatCount="indefinite"/>
+                <animate attributeName="cy" values="160;170;160" dur="5s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="220" cy="240" r="1.5" fill="#00E6E6">
+                <animate attributeName="cx" values="220;210;220" dur="3s" repeatCount="indefinite"/>
+                <animate attributeName="cy" values="240;230;240" dur="4s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="160" cy="220" r="1.5" fill="#FFFFFF">
+                <animate attributeName="cx" values="160;150;160" dur="5s" repeatCount="indefinite"/>
+                <animate attributeName="cy" values="220;210;220" dur="6s" repeatCount="indefinite"/>
+            </circle>
+        </g>
+    </g>
+    
+    <!-- Outer glow ring -->
+    <circle cx="200" cy="200" r="130" fill="none" stroke="url(#mainGradient)" stroke-width="3" opacity="0.5" filter="url(#multiGlow)">
+        <animate attributeName="r" values="130;135;130" dur="6s" repeatCount="indefinite"/>
     </circle>
     
-    <!-- Inner circle with subtle pulse -->
-    <circle cx="200" cy="200" r="80" fill="none" stroke="#00FFFF" stroke-width="1" opacity="0.6">
-        <animate attributeName="r" values="80;85;80" dur="3s" repeatCount="indefinite" begin="0.5s"/>
+    <!-- Central orb with enhanced glow -->
+    <circle cx="200" cy="200" r="50" fill="none" stroke="#FFFFFF" stroke-width="2" opacity="0.9" filter="url(#multiGlow)">
+        <animate attributeName="r" values="50;52;50" dur="3s" repeatCount="indefinite"/>
     </circle>
     
-    <!-- Core element -->
-    <circle cx="200" cy="200" r="40" fill="none" stroke="#FF00FF" stroke-width="2" opacity="0.9" filter="url(#softGlow)">
-        <animate attributeName="r" values="40;42;40" dur="2s" repeatCount="indefinite"/>
+    <!-- Dynamic crosshair -->
+    <g opacity="0.8">
+        <line x1="180" y1="200" x2="220" y2="200" stroke="#FFFFFF" stroke-width="2">
+            <animate attributeName="x1" values="180;175;180" dur="2s" repeatCount="indefinite"/>
+            <animate attributeName="x2" values="220;225;220" dur="2s" repeatCount="indefinite"/>
+        </line>
+        <line x1="200" y1="180" x2="200" y2="220" stroke="#FFFFFF" stroke-width="2">
+            <animate attributeName="y1" values="180;175;180" dur="2s" repeatCount="indefinite"/>
+            <animate attributeName="y2" values="220;225;220" dur="2s" repeatCount="indefinite"/>
+        </line>
+    </g>
+    
+    <!-- Central point with enhanced animation -->
+    <circle cx="200" cy="200" r="4" fill="#FFFFFF">
+        <animate attributeName="r" values="4;6;4" dur="1s" repeatCount="indefinite"/>
     </circle>
     
-    <!-- Minimal crosshair -->
+    <!-- Dynamic focal line with trail effect -->
     <g opacity="0.7">
-        <line x1="180" y1="200" x2="220" y2="200" stroke="#FFFFFF" stroke-width="2"/>
-        <line x1="200" y1="180" x2="200" y2="220" stroke="#FFFFFF" stroke-width="2"/>
+        <line x1="200" y1="200" x2="300" y2="200" stroke="#FFFFFF" stroke-width="1.5" stroke-dasharray="4,2">
+            <animate attributeName="stroke-dashoffset" values="0;6;0" dur="1.5s" repeatCount="indefinite"/>
+        </line>
+        <line x1="200" y1="200" x2="300" y2="200" stroke="#00E6E6" stroke-width="1" stroke-dasharray="2,4" opacity="0.5">
+            <animate attributeName="stroke-dashoffset" values="6;0;6" dur="1.5s" repeatCount="indefinite"/>
+        </line>
     </g>
     
-    <!-- Central point -->
-    <circle cx="200" cy="200" r="4" fill="#FFFFFF"/>
-    
-    <!-- Minimal focal line -->
-    <line x1="200" y1="200" x2="300" y2="200" stroke="#FFFFFF" stroke-width="1" stroke-dasharray="4,2" opacity="0.5">
-        <animate attributeName="stroke-dashoffset" values="0;6;0" dur="2s" repeatCount="indefinite"/>
-    </line>
-    
-    <!-- Focal point -->
-    <circle cx="300" cy="200" r="3" fill="#00FFFF">
-        <animate attributeName="r" values="3;4;3" dur="1.5s" repeatCount="indefinite"/>
+    <!-- Enhanced focal point -->
+    <circle cx="300" cy="200" r="4" fill="#00E6E6" filter="url(#multiGlow)">
+        <animate attributeName="r" values="4;6;4" dur="1s" repeatCount="indefinite"/>
     </circle>
     
-    <!-- Minimal angle indicators -->
-    <g opacity="0.6">
-        <line x1="200" y1="200" x2="280" y2="180" stroke="#FF00FF" stroke-width="1.5"/>
-        <line x1="200" y1="200" x2="280" y2="220" stroke="#00FFFF" stroke-width="1.5"/>
+    <!-- Dynamic angle indicators -->
+    <g opacity="0.7">
+        <line x1="200" y1="200" x2="280" y2="180" stroke="#FF4DFF" stroke-width="2">
+            <animate attributeName="x2" values="280;285;280" dur="3s" repeatCount="indefinite"/>
+            <animate attributeName="y2" values="180;175;180" dur="3s" repeatCount="indefinite"/>
+        </line>
+        <line x1="200" y1="200" x2="280" y2="220" stroke="#00E6E6" stroke-width="2">
+            <animate attributeName="x2" values="280;285;280" dur="3s" repeatCount="indefinite"/>
+            <animate attributeName="y2" values="220;225;220" dur="3s" repeatCount="indefinite"/>
+        </line>
     </g>
     
-    <!-- Minimal arc -->
-    <path d="M 250 190 A 30 30 0 0 1 250 210" fill="none" stroke="#FFFFFF" stroke-width="1.5" opacity="0.7"/>
+    <!-- Enhanced arc with animation -->
+    <path d="M 250 190 A 30 30 0 0 1 250 210" fill="none" stroke="#FFFFFF" stroke-width="2" opacity="0.8">
+        <animate attributeName="d" values="M 250 190 A 30 30 0 0 1 250 210; M 250 188 A 32 32 0 0 1 250 212; M 250 190 A 30 30 0 0 1 250 210" dur="4s" repeatCount="indefinite"/>
+    </path>
     
-    <!-- Album title - clean and minimal -->
-    <text x="200" y="320" text-anchor="middle" font-family="Arial" font-size="18" font-weight="300" fill="#FFFFFF" opacity="0.9">
+    <!-- Enhanced typography with better readability -->
+    <text x="200" y="320" text-anchor="middle" font-family="'Segoe UI', system-ui, sans-serif" font-size="20" font-weight="500" fill="#FFFFFF" opacity="0.95" letter-spacing="1">
         SKIBIDI MAXXING
+        <animate attributeName="opacity" values="0.95;0.7;0.95" dur="3s" repeatCount="indefinite"/>
     </text>
     
-    <!-- Artist name - subtle -->
-    <text x="200" y="345" text-anchor="middle" font-family="Arial" font-size="12" fill="#00FFFF" opacity="0.7">
+    <!-- Artist name with enhanced styling -->
+    <text x="200" y="345" text-anchor="middle" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" font-weight="300" fill="#00E6E6" opacity="0.8" letter-spacing="2">
         OMGYATTTT
+        <animate attributeName="letter-spacing" values="2;3;2" dur="4s" repeatCount="indefinite"/>
     </text>
     
-    <!-- Minimal corner accents -->
-    <g opacity="0.5">
-        <line x1="50" y1="50" x2="70" y2="50" stroke="#FF00FF" stroke-width="1"/>
-        <line x1="50" y1="50" x2="50" y2="70" stroke="#FF00FF" stroke-width="1"/>
+    <!-- Enhanced corner accents with animation -->
+    <g opacity="0.6">
+        <!-- Top-left corner -->
+        <g>
+            <line x1="50" y1="50" x2="70" y2="50" stroke="#FF4DFF" stroke-width="1.5">
+                <animate attributeName="x2" values="70;75;70" dur="2s" repeatCount="indefinite"/>
+            </line>
+            <line x1="50" y1="50" x2="50" y2="70" stroke="#FF4DFF" stroke-width="1.5">
+                <animate attributeName="y2" values="70;75;70" dur="2s" repeatCount="indefinite"/>
+            </line>
+        </g>
         
-        <line x1="350" y1="50" x2="330" y2="50" stroke="#00FFFF" stroke-width="1"/>
-        <line x1="350" y1="50" x2="350" y2="70" stroke="#00FFFF" stroke-width="1"/>
+        <!-- Top-right corner -->
+        <g>
+            <line x1="350" y1="50" x2="330" y2="50" stroke="#00E6E6" stroke-width="1.5">
+                <animate attributeName="x2" values="330;325;330" dur="2s" repeatCount="indefinite"/>
+            </line>
+            <line x1="350" y1="50" x2="350" y2="70" stroke="#00E6E6" stroke-width="1.5">
+                <animate attributeName="y2" values="70;75;70" dur="2s" repeatCount="indefinite"/>
+            </line>
+        </g>
         
-        <line x1="50" y1="350" x2="70" y2="350" stroke="#FFFFFF" stroke-width="1"/>
-        <line x1="50" y1="350" x2="50" y2="330" stroke="#FFFFFF" stroke-width="1"/>
+        <!-- Bottom-left corner -->
+        <g>
+            <line x1="50" y1="350" x2="70" y2="350" stroke="#FFFFFF" stroke-width="1.5">
+                <animate attributeName="x2" values="70;75;70" dur="2s" repeatCount="indefinite"/>
+            </line>
+            <line x1="50" y1="350" x2="50" y2="330" stroke="#FFFFFF" stroke-width="1.5">
+                <animate attributeName="y2" values="330;325;330" dur="2s" repeatCount="indefinite"/>
+            </line>
+        </g>
         
-        <line x1="350" y1="350" x2="330" y2="350" stroke="#FF00FF" stroke-width="1"/>
-        <line x1="350" y1="350" x2="350" y2="330" stroke="#FF00FF" stroke-width="1"/>
+        <!-- Bottom-right corner -->
+        <g>
+            <line x1="350" y1="350" x2="330" y2="350" stroke="#FF4DFF" stroke-width="1.5">
+                <animate attributeName="x2" values="330;325;330" dur="2s" repeatCount="indefinite"/>
+            </line>
+            <line x1="350" y1="350" x2="350" y2="330" stroke="#FF4DFF" stroke-width="1.5">
+                <animate attributeName="y2" values="330;325;330" dur="2s" repeatCount="indefinite"/>
+            </line>
+        </g>
     </g>
 </svg>
