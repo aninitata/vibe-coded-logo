@@ -30,17 +30,27 @@
   <circle cx="100" cy="100" r="32" fill="none" stroke="#E6F0FA" stroke-width="2" opacity="0.9"/>
   <circle cx="100" cy="100" r="20" fill="none" stroke="#FFFFFF" stroke-width="1.5"/>
 
-  <!-- Field of View Arcs (Softer Appearance) -->
-  <path d="M 100 25 A 75 75 0 0 1 175 100" fill="none" stroke="url(#fovGrad)" stroke-width="6" stroke-linecap="round" opacity="0.5"/>
-  <path d="M 100 25 A 75 75 0 0 0 25 100" fill="none" stroke="url(#fovGrad)" stroke-width="6" stroke-linecap="round" opacity="0.5"/>
-
-  <!-- Focal Length Indicator (Refined) -->
-  <line x1="100" y1="55" x2="100" y2="145" stroke="#2A2A2A" stroke-width="1.5" stroke-dasharray="5,3"/>
-
+  <!-- Clear Field of View Cone -->
+  <path d="M 100 100 L 180 60 L 180 140 Z" fill="url(#fovGrad)" fill-opacity="0.2" stroke="url(#fovGrad)" stroke-width="2" stroke-opacity="0.8"/>
+  
+  <!-- Focal Length Arrow (Horizontal) -->
+  <line x1="100" y1="100" x2="180" y2="100" stroke="#2A2A2A" stroke-width="2" stroke-dasharray="4,2"/>
+  <polygon points="180,100 176,96 176,104" fill="#2A2A2A"/>
+  
+  <!-- Field of View Angle Indicators -->
+  <path d="M 100 100 L 160 70" stroke="#FF4D4D" stroke-width="2" stroke-dasharray="2,2"/>
+  <path d="M 100 100 L 160 130" stroke="#FF4D4D" stroke-width="2" stroke-dasharray="2,2"/>
+  
+  <!-- Angle Arc -->
+  <path d="M 130 85 A 25 25 0 0 1 130 115" fill="none" stroke="#FF4D4D" stroke-width="3"/>
+  
   <!-- Central Focus Point -->
   <circle cx="100" cy="100" r="4" fill="#FFEA00" stroke="#2A2A2A" stroke-width="1.5"/>
+  
+  <!-- Focal Point -->
+  <circle cx="180" cy="100" r="4" fill="#FFEA00" stroke="#2A2A2A" stroke-width="1.5"/>
 
   <!-- Angle Markers (Enhanced Contrast) -->
-  <line x1="80" y1="20" x2="85" y2="25" stroke="#FF4D4D" stroke-width="3" stroke-linecap="round"/>
-  <line x1="120" y1="20" x2="115" y2="25" stroke="#FF4D4D" stroke-width="3" stroke-linecap="round"/>
+  <line x1="85" y1="25" x2="90" y2="30" stroke="#FF4D4D" stroke-width="3" stroke-linecap="round"/>
+  <line x1="115" y1="25" x2="110" y2="30" stroke="#FF4D4D" stroke-width="3" stroke-linecap="round"/>
 </svg>
