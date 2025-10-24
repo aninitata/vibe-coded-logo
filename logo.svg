@@ -1,34 +1,46 @@
-﻿<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="lensGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#4DA6FF"/>
-      <stop offset="100%" stop-color="#0066CC"/>
+      <stop offset="0%" stop-color="#66B2FF" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#004080" stop-opacity="0.9"/>
     </linearGradient>
     <linearGradient id="fovGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FF6B6B"/>
-      <stop offset="100%" stop-color="#CC0000"/>
+      <stop offset="0%" stop-color="#FF8080" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#B30000" stop-opacity="0.7"/>
     </linearGradient>
+    <filter id="lensShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
+      <feOffset dx="2" dy="2" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.3"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
   </defs>
-  
+
   <!-- Background Circle -->
-  <circle cx="100" cy="100" r="85" fill="#f0f8ff" stroke="#e0e0e0" stroke-width="2"/>
-  
-  <!-- Camera Lens Representation -->
-  <circle cx="100" cy="100" r="40" fill="url(#lensGrad)" opacity="0.8"/>
-  <circle cx="100" cy="100" r="30" fill="none" stroke="white" stroke-width="3"/>
-  <circle cx="100" cy="100" r="15" fill="none" stroke="white" stroke-width="2"/>
-  
-  <!-- Field of View Arcs -->
-  <path d="M 100 30 A 70 70 0 0 1 170 100" fill="none" stroke="url(#fovGrad)" stroke-width="8" stroke-linecap="round"/>
-  <path d="M 100 30 A 70 70 0 0 0 30 100" fill="none" stroke="url(#fovGrad)" stroke-width="8" stroke-linecap="round"/>
-  
-  <!-- Focal Length Indicator -->
-  <line x1="100" y1="60" x2="100" y2="140" stroke="#333" stroke-width="4" stroke-dasharray="5,3"/>
-  
+  <circle cx="100" cy="100" r="90" fill="#F5FAFF" stroke="#D8E0EA" stroke-width="2"/>
+
+  <!-- Camera Lens with Depth -->
+  <circle cx="100" cy="100" r="45" fill="url(#lensGrad)" filter="url(#lensShadow)" opacity="0.85"/>
+  <circle cx="100" cy="100" r="40" fill="none" stroke="#FFFFFF" stroke-width="3" opacity="0.7"/>
+  <circle cx="100" cy="100" r="32" fill="none" stroke="#E6F0FA" stroke-width="2" opacity="0.9"/>
+  <circle cx="100" cy="100" r="20" fill="none" stroke="#FFFFFF" stroke-width="1.5"/>
+
+  <!-- Field of View Arcs (Softer Appearance) -->
+  <path d="M 100 25 A 75 75 0 0 1 175 100" fill="none" stroke="url(#fovGrad)" stroke-width="6" stroke-linecap="round" opacity="0.5"/>
+  <path d="M 100 25 A 75 75 0 0 0 25 100" fill="none" stroke="url(#fovGrad)" stroke-width="6" stroke-linecap="round" opacity="0.5"/>
+
+  <!-- Focal Length Indicator (Refined) -->
+  <line x1="100" y1="55" x2="100" y2="145" stroke="#2A2A2A" stroke-width="1.5" stroke-dasharray="5,3"/>
+
   <!-- Central Focus Point -->
-  <circle cx="100" cy="100" r="5" fill="#FFD700" stroke="#333" stroke-width="2"/>
-  
-  <!-- Angle Markers -->
-  <line x1="85" y1="25" x2="90" y2="30" stroke="#FF6B6B" stroke-width="3"/>
-  <line x1="115" y1="25" x2="110" y2="30" stroke="#FF6B6B" stroke-width="3"/>
+  <circle cx="100" cy="100" r="4" fill="#FFEA00" stroke="#2A2A2A" stroke-width="1.5"/>
+
+  <!-- Angle Markers (Enhanced Contrast) -->
+  <line x1="80" y1="20" x2="85" y2="25" stroke="#FF4D4D" stroke-width="3" stroke-linecap="round"/>
+  <line x1="120" y1="20" x2="115" y2="25" stroke="#FF4D4D" stroke-width="3" stroke-linecap="round"/>
 </svg>
