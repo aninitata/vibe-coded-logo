@@ -1,56 +1,115 @@
 <svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
   <defs>
+    <!-- HYPER MAXXED GRADIENTS 🎨 -->
     <linearGradient id="lensGrad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#66B2FF" stop-opacity="0.9"/>
+      <stop offset="50%" stop-color="#FF00FF" stop-opacity="0.8"/>
       <stop offset="100%" stop-color="#004080" stop-opacity="0.9"/>
     </linearGradient>
+    
     <linearGradient id="fovGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FF8080" stop-opacity="0.7"/>
-      <stop offset="100%" stop-color="#B30000" stop-opacity="0.7"/>
+      <stop offset="0%" stop-color="#FF8080" stop-opacity="0.9"/>
+      <stop offset="50%" stop-color="#FFFF00" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#B30000" stop-opacity="0.9"/>
     </linearGradient>
-    <filter id="lensShadow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
-      <feOffset dx="2" dy="2" result="offsetblur"/>
-      <feComponentTransfer>
-        <feFuncA type="linear" slope="0.3"/>
-      </feComponentTransfer>
+    
+    <!-- OHIO BRAINROT GLOW EFFECTS 🌟 -->
+    <filter id="brainrotGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4" result="blur"/>
+      <feFlood flood-color="#FF00FF" flood-opacity="0.8" result="glowColor"/>
+      <feComposite in="glowColor" in2="blur" operator="in" result="glow"/>
       <feMerge>
-        <feMergeNode/>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="glow"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
+    
+    <!-- PICKLE JUICE ENERGY FILTER 🥒 -->
+    <filter id="pickleEnergy">
+      <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="2" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    
+    <!-- SIGMA RIZZ SPARKLE EFFECT 💫 -->
+    <pattern id="sparklePattern" patternUnits="userSpaceOnUse" width="20" height="20">
+      <circle cx="10" cy="10" r="1" fill="#FFFFFF" opacity="0.8">
+        <animate attributeName="r" values="1;3;1" dur="1s" repeatCount="indefinite"/>
+      </circle>
+    </pattern>
   </defs>
 
-  <!-- Background Circle -->
-  <circle cx="100" cy="100" r="90" fill="#F5FAFF" stroke="#D8E0EA" stroke-width="2"/>
-
-  <!-- Camera Lens with Depth -->
-  <circle cx="100" cy="100" r="45" fill="url(#lensGrad)" filter="url(#lensShadow)" opacity="0.85"/>
-  <circle cx="100" cy="100" r="40" fill="none" stroke="#FFFFFF" stroke-width="3" opacity="0.7"/>
-  <circle cx="100" cy="100" r="32" fill="none" stroke="#E6F0FA" stroke-width="2" opacity="0.9"/>
-  <circle cx="100" cy="100" r="20" fill="none" stroke="#FFFFFF" stroke-width="1.5"/>
-
-  <!-- Clear Field of View Cone -->
-  <path d="M 100 100 L 180 60 L 180 140 Z" fill="url(#fovGrad)" fill-opacity="0.2" stroke="url(#fovGrad)" stroke-width="2" stroke-opacity="0.8"/>
+  <!-- HYPERPOP BACKGROUND WITH FLOOR IS LAVA EFFECT 🌋 -->
+  <rect width="200" height="200" fill="url(#sparklePattern)" opacity="0.3"/>
+  <circle cx="100" cy="100" r="90" fill="#0A0A0A" stroke="#FF00FF" stroke-width="3" stroke-dasharray="5,3"/>
   
-  <!-- Focal Length Arrow (Horizontal) -->
-  <line x1="100" y1="100" x2="180" y2="100" stroke="#2A2A2A" stroke-width="2" stroke-dasharray="4,2"/>
-  <polygon points="180,100 176,96 176,104" fill="#2A2A2A"/>
+  <!-- NEON GLOW CAMERA LENS WITH BRAINROT ENERGY ⚡ -->
+  <circle cx="100" cy="100" r="48" fill="#FF00FF" opacity="0.3" filter="url(#brainrotGlow)"/>
+  <circle cx="100" cy="100" r="45" fill="url(#lensGrad)" filter="url(#brainrotGlow)" opacity="0.95"/>
   
-  <!-- Field of View Angle Indicators -->
-  <path d="M 100 100 L 160 70" stroke="#FF4D4D" stroke-width="2" stroke-dasharray="2,2"/>
-  <path d="M 100 100 L 160 130" stroke="#FF4D4D" stroke-width="2" stroke-dasharray="2,2"/>
+  <!-- SKIBIDI RING EFFECTS 🚽 -->
+  <circle cx="100" cy="100" r="40" fill="none" stroke="#00FFFF" stroke-width="4" opacity="0.8">
+    <animate attributeName="r" values="40;42;40" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="100" cy="100" r="35" fill="none" stroke="#FFFF00" stroke-width="3" opacity="0.7">
+    <animate attributeName="r" values="35;37;35" dur="1.5s" repeatCount="indefinite"/>
+  </circle>
   
-  <!-- Angle Arc -->
-  <path d="M 130 85 A 25 25 0 0 1 130 115" fill="none" stroke="#FF4D4D" stroke-width="3"/>
+  <!-- GYAT FIELD OF VIEW CONE WITH ANIMATION 🍑 -->
+  <path d="M 100 100 L 180 60 L 180 140 Z" fill="url(#fovGrad)" fill-opacity="0.4" stroke="#FF0066" stroke-width="3" stroke-opacity="0.9">
+    <animate attributeName="opacity" values="0.4;0.7;0.4" dur="3s" repeatCount="indefinite"/>
+  </path>
   
-  <!-- Central Focus Point -->
-  <circle cx="100" cy="100" r="4" fill="#FFEA00" stroke="#2A2A2A" stroke-width="1.5"/>
+  <!-- PULSING FOCAL LENGTH ARROW WITH DASH ANIMATION 🏹 -->
+  <line x1="100" y1="100" x2="180" y2="100" stroke="#00FF88" stroke-width="3" stroke-dasharray="4,2">
+    <animate attributeName="stroke-dashoffset" values="0;10;0" dur="1s" repeatCount="indefinite"/>
+  </line>
+  <polygon points="180,100 176,96 176,104" fill="#00FF88">
+    <animate attributeName="fill" values="#00FF88;#FF00FF;#00FF88" dur="2s" repeatCount="indefinite"/>
+  </polygon>
   
-  <!-- Focal Point -->
-  <circle cx="180" cy="100" r="4" fill="#FFEA00" stroke="#2A2A2A" stroke-width="1.5"/>
-
-  <!-- Angle Markers (Enhanced Contrast) -->
-  <line x1="85" y1="25" x2="90" y2="30" stroke="#FF4D4D" stroke-width="3" stroke-linecap="round"/>
-  <line x1="115" y1="25" x2="110" y2="30" stroke="#FF4D4D" stroke-width="3" stroke-linecap="round"/>
+  <!-- VIBE CHECK FIELD OF VIEW INDICATORS 🌈 -->
+  <path d="M 100 100 L 160 70" stroke="#FF4D4D" stroke-width="3" stroke-dasharray="2,2">
+    <animate attributeName="stroke" values="#FF4D4D;#FFFF00;#FF4D4D" dur="2s" repeatCount="indefinite"/>
+  </path>
+  <path d="M 100 100 L 160 130" stroke="#FF4D4D" stroke-width="3" stroke-dasharray="2,2">
+    <animate attributeName="stroke" values="#FF4D4D;#00FFFF;#FF4D4D" dur="2s" repeatCount="indefinite"/>
+  </path>
+  
+  <!-- PULSING ANGLE ARC WITH OHIO ENERGY 🎯 -->
+  <path d="M 130 85 A 25 25 0 0 1 130 115" fill="none" stroke="#FF00FF" stroke-width="4">
+    <animate attributeName="stroke-width" values="4;6;4" dur="1.5s" repeatCount="indefinite"/>
+  </path>
+  
+  <!-- BRAINROT CENTRAL FOCUS POINT WITH SPIN 🔄 -->
+  <circle cx="100" cy="100" r="6" fill="#FFEA00" stroke="#FF00FF" stroke-width="2">
+    <animate attributeName="r" values="6;8;6" dur="0.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="100" cy="100" r="2" fill="#FF0066">
+    <animateTransform attributeName="transform" type="rotate" from="0 100 100" to="360 100 100" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- MOGGED FOCAL POINT WITH HYPERPOP GLOW 🎆 -->
+  <circle cx="180" cy="100" r="6" fill="#00FFFF" stroke="#FF00FF" stroke-width="2" filter="url(#brainrotGlow)">
+    <animate attributeName="fill" values="#00FFFF;#FF00FF;#00FFFF" dur="1s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- SIGMA ANGLE MARKERS WITH PULSE EFFECT 💪 -->
+  <line x1="85" y1="25" x2="90" y2="30" stroke="#FF4D4D" stroke-width="4" stroke-linecap="round">
+    <animate attributeName="stroke" values="#FF4D4D;#FFFF00;#FF4D4D" dur="1s" repeatCount="indefinite"/>
+  </line>
+  <line x1="115" y1="25" x2="110" y2="30" stroke="#FF4D4D" stroke-width="4" stroke-linecap="round">
+    <animate attributeName="stroke" values="#FF4D4D;#00FFFF;#FF4D4D" dur="1s" repeatCount="indefinite"/>
+  </line>
+  
+  <!-- BONUS: FLOATING BRAINROT EMOJIS 🍑🚽✨ -->
+  <text x="50" y="50" font-size="12" fill="#FF00FF" opacity="0.8">🍑</text>
+  <text x="160" y="40" font-size="10" fill="#00FFFF" opacity="0.7">🚽</text>
+  <text x="170" y="170" font-size="8" fill="#FFFF00" opacity="0.6">✨</text>
+  
+  <!-- PICKLE JUICE ENERGY WAVES 🥒 -->
+  <circle cx="100" cy="100" r="60" fill="none" stroke="#00FF88" stroke-width="2" opacity="0.5" stroke-dasharray="5,5">
+    <animate attributeName="r" values="60;65;60" dur="3s" repeatCount="indefinite"/>
+  </circle>
 </svg>
