@@ -43,67 +43,95 @@
     <rect x="40" y="40" width="320" height="320" rx="20" fill="none" stroke="url(#frameGradient)" stroke-width="10" opacity="0.9"/>
     <rect x="40" y="40" width="320" height="320" rx="20" fill="none" stroke="url(#lacePattern)" stroke-width="10" opacity="0.6"/>
     
-    <!-- Decorative corner elements -->
+    <!-- Decorative corner ribbon elements -->
     <g opacity="0.9">
-        <!-- Top-left corner -->
-        <path d="M40,40 Q60,30 80,40" fill="none" stroke="#FF1493" stroke-width="4"/>
-        <path d="M40,40 Q30,60 40,80" fill="none" stroke="#FF1493" stroke-width="4"/>
+        <!-- Top-left ribbon -->
+        <path d="M30,50 L40,40 L50,30 Q55,35 50,40 L45,45 Q50,50 45,55 L40,50 Q35,55 30,50 Z" fill="#FF1493"/>
+        <path d="M30,50 L40,40 L50,30" fill="none" stroke="#FF69B4" stroke-width="2"/>
         
-        <!-- Top-right corner -->
-        <path d="M360,40 Q340,30 320,40" fill="none" stroke="#FF1493" stroke-width="4"/>
-        <path d="M360,40 Q370,60 360,80" fill="none" stroke="#FF1493" stroke-width="4"/>
+        <!-- Top-right ribbon -->
+        <path d="M370,50 L360,40 L350,30 Q345,35 350,40 L355,45 Q350,50 355,55 L360,50 Q365,55 370,50 Z" fill="#FF1493"/>
+        <path d="M370,50 L360,40 L350,30" fill="none" stroke="#FF69B4" stroke-width="2"/>
         
-        <!-- Bottom-left corner -->
-        <path d="M40,360 Q60,370 80,360" fill="none" stroke="#FF1493" stroke-width="4"/>
-        <path d="M40,360 Q30,340 40,320" fill="none" stroke="#FF1493" stroke-width="4"/>
+        <!-- Bottom-left ribbon -->
+        <path d="M30,350 L40,360 L50,370 Q55,365 50,360 L45,355 Q50,350 45,345 L40,350 Q35,345 30,350 Z" fill="#FF1493"/>
+        <path d="M30,350 L40,360 L50,370" fill="none" stroke="#FF69B4" stroke-width="2"/>
         
-        <!-- Bottom-right corner -->
-        <path d="M360,360 Q340,370 320,360" fill="none" stroke="#FF1493" stroke-width="4"/>
-        <path d="M360,360 Q370,340 360,320" fill="none" stroke="#FF1493" stroke-width="4"/>
+        <!-- Bottom-right ribbon -->
+        <path d="M370,350 L360,360 L350,370 Q345,365 350,360 L355,355 Q350,350 355,345 L360,350 Q365,345 370,350 Z" fill="#FF1493"/>
+        <path d="M370,350 L360,360 L350,370" fill="none" stroke="#FF69B4" stroke-width="2"/>
     </g>
     
-    <!-- Lolita fashion silhouette -->
-    <g transform="translate(200, 200)" filter="url(#softGlow)">
+    <!-- Complete Lolita fashion silhouette with full body -->
+    <g transform="translate(200, 220)" filter="url(#softGlow)">
+        <!-- Legs with frilly socks -->
+        <rect x="-12" y="70" width="10" height="45" fill="url(#silhouetteGradient)"/>
+        <rect x="2" y="70" width="10" height="45" fill="url(#silhouetteGradient)"/>
+        
+        <!-- Frilly sock details -->
+        <path d="M-12,105 Q-7,100 -2,105" fill="none" stroke="#FFFFFF" stroke-width="2" opacity="0.7"/>
+        <path d="M2,105 Q7,100 12,105" fill="none" stroke="#FFFFFF" stroke-width="2" opacity="0.7"/>
+        
+        <!-- Shoes with bows -->
+        <ellipse cx="-7" cy="118" rx="10" ry="6" fill="url(#silhouetteGradient)"/>
+        <ellipse cx="7" cy="118" rx="10" ry="6" fill="url(#silhouetteGradient)"/>
+        <path d="M-12,118 Q-7,115 -2,118 Q-7,121 -12,118 Z" fill="#FF1493"/>
+        <path d="M2,118 Q7,115 12,118 Q7,121 2,118 Z" fill="#FF1493"/>
+        
         <!-- Bell-shaped JSK dress with petticoat -->
-        <path d="M-60,20 Q-65,40 -70,60 L-75,90 L75,90 L70,60 Q65,40 60,20 Q55,0 50,-10 L-50,-10 Q-55,0 -60,20 Z" 
+        <path d="M-60,0 Q-65,20 -70,40 L-75,70 L75,70 L70,40 Q65,20 60,0 Q55,-20 50,-30 L-50,-30 Q-55,-20 -60,0 Z" 
               fill="url(#silhouetteGradient)"/>
         
         <!-- Dress bodice -->
-        <path d="M-30,-10 L-40,20 L40,20 L30,-10 Q20,-20 0,-22 Q-20,-20 -30,-10 Z" 
+        <path d="M-30,-30 L-40,0 L40,0 L30,-30 Q20,-40 0,-42 Q-20,-40 -30,-30 Z" 
               fill="url(#silhouetteGradient)"/>
         
         <!-- White apron/pinafore detail -->
-        <path d="M-25,0 L-30,30 Q0,40 30,30 L25,0 Q15,-8 0,-10 Q-15,-8 -25,0 Z" 
+        <path d="M-25,-20 L-30,10 Q0,20 30,10 L25,-20 Q15,-28 0,-30 Q-15,-28 -25,-20 Z" 
               fill="#FFFFFF" opacity="0.85"/>
         
         <!-- Puffed sleeves -->
-        <ellipse cx="-35" cy="0" rx="15" ry="18" fill="url(#silhouetteGradient)"/>
-        <ellipse cx="35" cy="0" rx="15" ry="18" fill="url(#silhouetteGradient)"/>
+        <ellipse cx="-35" cy="-20" rx="15" ry="18" fill="url(#silhouetteGradient)"/>
+        <ellipse cx="35" cy="-20" rx="15" ry="18" fill="url(#silhouetteGradient)"/>
+        
+        <!-- Arms -->
+        <rect x="-48" y="-10" width="8" height="25" rx="4" fill="url(#silhouetteGradient)"/>
+        <rect x="40" y="-10" width="8" height="25" rx="4" fill="url(#silhouetteGradient)"/>
+        
+        <!-- Neck -->
+        <rect x="-8" y="-50" width="16" height="12" rx="4" fill="url(#silhouetteGradient)"/>
         
         <!-- Head -->
-        <circle cx="0" cy="-40" r="22" fill="url(#silhouetteGradient)"/>
+        <circle cx="0" cy="-60" r="22" fill="url(#silhouetteGradient)"/>
+        
+        <!-- Long hair flowing down -->
+        <path d="M-22,-60 Q-30,-55 -28,-45 L-25,-30 Q-22,-20 -18,-30 L-15,-45 Q-12,-55 -22,-60 Z" fill="url(#silhouetteGradient)"/>
+        <path d="M22,-60 Q30,-55 28,-45 L25,-30 Q22,-20 18,-30 L15,-45 Q12,-55 22,-60 Z" fill="url(#silhouetteGradient)"/>
         
         <!-- Twin tails / pigtails hairstyle -->
-        <ellipse cx="-25" cy="-35" rx="10" ry="20" fill="url(#silhouetteGradient)"/>
-        <ellipse cx="25" cy="-35" rx="10" ry="20" fill="url(#silhouetteGradient)"/>
+        <ellipse cx="-28" cy="-55" rx="12" ry="25" fill="url(#silhouetteGradient)"/>
+        <ellipse cx="28" cy="-55" rx="12" ry="25" fill="url(#silhouetteGradient)"/>
+        
+        <!-- Bangs -->
+        <path d="M-18,-75 Q-10,-80 0,-82 Q10,-80 18,-75 L15,-70 Q10,-72 0,-74 Q-10,-72 -15,-70 Z" fill="url(#silhouetteGradient)"/>
         
         <!-- Hair ribbons/bows -->
-        <path d="M-35,-40 Q-45,-35 -40,-25 Q-35,-30 -30,-35 Q-35,-40 -35,-40 Z" fill="#FF1493"/>
-        <path d="M35,-40 Q45,-35 40,-25 Q35,-30 30,-35 Q35,-40 35,-40 Z" fill="#FF1493"/>
+        <path d="M-38,-60 Q-48,-55 -43,-45 Q-38,-50 -33,-55 Q-38,-60 -38,-60 Z" fill="#FF1493"/>
+        <path d="M38,-60 Q48,-55 43,-45 Q38,-50 33,-55 Q38,-60 38,-60 Z" fill="#FF1493"/>
         
         <!-- Large decorative headbow -->
-        <path d="M-15,-60 Q-25,-65 -30,-55 L-20,-50 L-10,-60 L0,-55 L10,-60 L20,-50 L30,-55 Q25,-65 15,-60 Q10,-70 0,-72 Q-10,-70 -15,-60 Z" 
+        <path d="M-15,-80 Q-25,-85 -30,-75 L-20,-70 L-10,-80 L0,-75 L10,-80 L20,-70 L30,-75 Q25,-85 15,-80 Q10,-90 0,-92 Q-10,-90 -15,-80 Z" 
               fill="#FF1493" opacity="0.9"/>
         
         <!-- Lace collar -->
-        <ellipse cx="0" cy="-20" rx="18" ry="6" fill="#FFFFFF" opacity="0.9"/>
+        <ellipse cx="0" cy="-40" rx="18" ry="6" fill="#FFFFFF" opacity="0.9"/>
         
         <!-- Ruffle details on skirt -->
-        <path d="M-70,60 Q-60,55 -50,60 Q-40,55 -30,60 Q-20,55 -10,60 Q0,55 10,60 Q20,55 30,60 Q40,55 50,60 Q60,55 70,60" 
+        <path d="M-70,40 Q-60,35 -50,40 Q-40,35 -30,40 Q-20,35 -10,40 Q0,35 10,40 Q20,35 30,40 Q40,35 50,40 Q60,35 70,40" 
               fill="none" stroke="#FFFFFF" stroke-width="3" opacity="0.7"/>
         
         <!-- Heart accessory -->
-        <path d="M-5,-32 Q-10,-37 -5,-42 Q0,-37 5,-42 Q10,-37 5,-32 Q0,-27 -5,-32 Z" fill="#FF69B4"/>
+        <path d="M-5,-52 Q-10,-57 -5,-62 Q0,-57 5,-62 Q10,-57 5,-52 Q0,-47 -5,-52 Z" fill="#FF69B4"/>
     </g>
     
     <!-- Floating hearts animation (like sprinkles!) -->
@@ -129,17 +157,4 @@
             <animateTransform attributeName="transform" type="translate" values="0,0;0,-14;0,0" dur="5.5s" repeatCount="indefinite"/>
         </path>
     </g>
-    
-    <!-- Text area with proper spacing -->
-    <rect x="80" y="320" width="240" height="70" rx="10" fill="#FFFFFF" opacity="0.8" filter="url(#softGlow)"/>
-    
-    <!-- Main title -->
-    <text x="200" y="350" text-anchor="middle" font-family="Georgia, serif" font-size="26" fill="#2C1810" font-weight="bold">
-        Sweet Elegance
-    </text>
-    
-    <!-- Subtitle -->
-    <text x="200" y="375" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#FF1493" font-style="italic">
-        Lolita Boutique
-    </text>
 </svg>
