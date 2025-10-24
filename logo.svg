@@ -1,197 +1,118 @@
 <svg width="800" height="800" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
     <defs>
-        <!-- Background gradient - soft pink angelic colors -->
         <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" stop-color="#fff0f5"/>
             <stop offset="100%" stop-color="#ffe4ec"/>
         </linearGradient>
-        
-        <!-- Dress gradients - soft pink shades -->
         <linearGradient id="dressGradient" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" stop-color="#ff9eb5"/>
             <stop offset="100%" stop-color="#ff85a2"/>
         </linearGradient>
-        
-        <!-- Lace gradient - soft white with pink tint -->
         <linearGradient id="laceGradient" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" stop-color="#fff8fb"/>
             <stop offset="100%" stop-color="#ffeef4"/>
         </linearGradient>
-        
-        <!-- Pearl gradient - soft pink pearls -->
         <radialGradient id="pearlGradient" cx="30%" cy="30%" r="70%">
             <stop offset="0%" stop-color="#fff8fb"/>
             <stop offset="100%" stop-color="#ffd1dc"/>
         </radialGradient>
-        
-        <!-- Patterns -->
         <pattern id="smallLace" width="15" height="15" patternUnits="userSpaceOnUse">
             <circle cx="7.5" cy="7.5" r="1.5" fill="#ff85a2" opacity="0.7"/>
         </pattern>
-        
         <pattern id="corsetPattern" width="8" height="8" patternUnits="userSpaceOnUse">
             <line x1="0" y1="0" x2="8" y2="8" stroke="#ff85a2" stroke-width="0.5" opacity="0.6"/>
             <line x1="8" y1="0" x2="0" y2="8" stroke="#ff85a2" stroke-width="0.5" opacity="0.6"/>
         </pattern>
-        
-        <!-- Filters -->
         <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
             <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur"/>
             <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.9  0 0 0 0 0.6  0 0 0 0 0.7  0 0 0 0.2 0" result="shadow"/>
             <feBlend in="SourceGraphic" in2="shadow" mode="normal"/>
         </filter>
     </defs>
-    
-    <!-- Background -->
     <rect width="400" height="400" fill="url(#bgGradient)"/>
-    
-    <!-- Decorative frame with Angelic Pretty style -->
     <rect x="25" y="25" width="350" height="350" rx="20" fill="none" stroke="#ff85a2" stroke-width="6" opacity="0.8"/>
     <rect x="25" y="25" width="350" height="350" rx="20" fill="none" stroke="url(#smallLace)" stroke-width="4" opacity="0.5"/>
-    
-    <!-- Angelic Pretty Lolita Silhouette -->
     <g transform="translate(200, 220)" filter="url(#softShadow)">
-        <!-- Legs -->
         <rect x="-12" y="70" width="10" height="45" fill="url(#dressGradient)"/>
         <rect x="2" y="70" width="10" height="45" fill="url(#dressGradient)"/>
-        
-        <!-- Mary Jane shoes with bows -->
         <path d="M-15,110 Q-10,105 -5,110 L-5,120 Q-10,125 -15,120 Z" fill="url(#dressGradient)"/>
         <path d="M5,110 Q10,105 15,110 L15,120 Q10,125 5,120 Z" fill="url(#dressGradient)"/>
         <path d="M-12,115 Q-7,112 -2,115 Q-7,118 -12,115 Z" fill="url(#laceGradient)"/>
         <path d="M2,115 Q7,112 12,115 Q7,118 2,115 Z" fill="url(#laceGradient)"/>
-        
-        <!-- Bell-shaped JSK dress with fuller silhouette -->
         <path d="M-65,0 Q-70,25 -75,50 L-80,75 L80,75 L75,50 Q70,25 65,0 Q60,-25 50,-35 L-50,-35 Q-60,-25 -65,0 Z" 
               fill="url(#dressGradient)"/>
-        
-        <!-- Dress bodice with corset detailing -->
         <path d="M-35,-35 L-45,0 L45,0 L35,-35 Q25,-45 0,-48 Q-25,-45 -35,-35 Z" 
               fill="url(#dressGradient)"/>
-        
-        <!-- Corset lacing detail -->
         <path d="M-10,-30 L-10,-10 M10,-30 L10,-10" fill="none" stroke="url(#laceGradient)" stroke-width="1.2"/>
         <path d="M-10,-30 Q0,-25 10,-30" fill="none" stroke="url(#laceGradient)" stroke-width="1.2"/>
-        
-        <!-- White pinafore overlay with scalloped edges -->
         <path d="M-30,-25 L-35,15 Q0,30 35,15 L30,-25 Q20,-35 0,-38 Q-20,-35 -30,-25 Z" 
               fill="url(#laceGradient)" opacity="0.9"/>
-        
-        <!-- Scalloped lace trim on pinafore -->
         <path d="M-35,15 Q-25,12 -15,15 Q-5,12 5,15 Q15,12 25,15 Q35,12 35,15" 
               fill="none" stroke="#ff85a2" stroke-width="1" opacity="0.7"/>
-        
-        <!-- Enhanced puffed sleeves with lace trim -->
         <ellipse cx="-40" cy="-25" rx="18" ry="22" fill="url(#dressGradient)"/>
         <ellipse cx="40" cy="-25" rx="18" ry="22" fill="url(#dressGradient)"/>
-        
-        <!-- Sleeve ruffles -->
         <path d="M-52,-20 Q-45,-15 -40,-20" fill="none" stroke="url(#laceGradient)" stroke-width="3" opacity="0.9"/>
         <path d="M40,-20 Q45,-15 52,-20" fill="none" stroke="url(#laceGradient)" stroke-width="3" opacity="0.9"/>
-        
-        <!-- Arms -->
         <rect x="-53" y="-15" width="8" height="30" rx="4" fill="url(#dressGradient)"/>
         <rect x="45" y="-15" width="8" height="30" rx="4" fill="url(#dressGradient)"/>
-        
-        <!-- Neck -->
         <rect x="-10" y="-55" width="20" height="15" rx="5" fill="url(#dressGradient)"/>
-        
-        <!-- Head -->
         <circle cx="0" cy="-70" r="25" fill="url(#dressGradient)"/>
-        
-        <!-- Hair with more volume -->
         <path d="M-25,-70 Q-35,-60 -30,-45 L-28,-30 Q-25,-15 -20,-30 L-18,-45 Q-15,-60 -25,-70 Z" fill="url(#dressGradient)"/>
         <path d="M25,-70 Q35,-60 30,-45 L28,-30 Q25,-15 20,-30 L18,-45 Q15,-60 25,-70 Z" fill="url(#dressGradient)"/>
-        
-        <!-- Twin tails with more defined shape -->
         <ellipse cx="-32" cy="-60" rx="14" ry="28" fill="url(#dressGradient)"/>
         <ellipse cx="32" cy="-60" rx="14" ry="28" fill="url(#dressGradient)"/>
-        
-        <!-- Bangs -->
         <path d="M-20,-85 Q-10,-92 0,-95 Q10,-92 20,-85 L18,-80 Q10,-85 0,-87 Q-10,-85 -18,-80 Z" fill="url(#dressGradient)"/>
-        
-        <!-- Enhanced large headbow (Angelic Pretty signature) -->
         <path d="M-20,-95 Q-35,-105 -45,-90 L-30,-80 L-15,-95 L0,-85 L15,-95 L30,-80 L45,-90 Q35,-105 20,-95 Q15,-110 0,-115 Q-15,-110 -20,-95 Z" 
               fill="url(#laceGradient)" opacity="0.95"/>
-        
-        <!-- Headbow center with pearl accent -->
         <circle cx="0" cy="-105" r="8" fill="url(#pearlGradient)"/>
         <circle cx="0" cy="-105" r="6" fill="url(#pearlGradient)" opacity="0.8"/>
-        
-        <!-- Pearl details on headbow -->
         <circle cx="-15" cy="-100" r="2.5" fill="url(#pearlGradient)"/>
         <circle cx="15" cy="-100" r="2.5" fill="url(#pearlGradient)"/>
         <circle cx="-25" cy="-90" r="2" fill="url(#pearlGradient)"/>
         <circle cx="25" cy="-90" r="2" fill="url(#pearlGradient)"/>
-        
-        <!-- Enhanced lace collar with pearls -->
         <ellipse cx="0" cy="-45" rx="22" ry="8" fill="url(#laceGradient)" opacity="0.9"/>
         <circle cx="-8" cy="-45" r="1.5" fill="url(#pearlGradient)"/>
         <circle cx="0" cy="-45" r="1.5" fill="url(#pearlGradient)"/>
         <circle cx="8" cy="-45" r="1.5" fill="url(#pearlGradient)"/>
-        
-        <!-- Multiple tiered ruffles on skirt (Angelic Pretty style) -->
         <path d="M-75,50 Q-65,45 -55,50 Q-45,45 -35,50 Q-25,45 -15,50 Q-5,45 5,50 Q15,45 25,50 Q35,45 45,50 Q55,45 65,50 Q75,45 75,50" 
               fill="none" stroke="url(#laceGradient)" stroke-width="4" opacity="0.9"/>
-        
         <path d="M-75,35 Q-65,30 -55,35 Q-45,30 -35,35 Q-25,30 -15,35 Q-5,30 5,35 Q15,30 25,35 Q35,30 45,35 Q55,30 65,35 Q75,30 75,35" 
               fill="none" stroke="url(#laceGradient)" stroke-width="3" opacity="0.8"/>
-        
         <path d="M-75,20 Q-65,15 -55,20 Q-45,15 -35,20 Q-25,15 -15,20 Q-5,15 5,20 Q15,15 25,20 Q35,15 45,20 Q55,15 65,20 Q75,15 75,20" 
               fill="none" stroke="url(#laceGradient)" stroke-width="2.5" opacity="0.7"/>
-        
-        <!-- Vertical ribbon details on skirt -->
         <path d="M-40,0 L-40,50" fill="none" stroke="url(#laceGradient)" stroke-width="1.5" opacity="0.6"/>
         <path d="M-20,0 L-20,50" fill="none" stroke="url(#laceGradient)" stroke-width="1.5" opacity="0.6"/>
         <path d="M0,0 L0,50" fill="none" stroke="url(#laceGradient)" stroke-width="1.5" opacity="0.6"/>
         <path d="M20,0 L20,50" fill="none" stroke="url(#laceGradient)" stroke-width="1.5" opacity="0.6"/>
         <path d="M40,0 L40,50" fill="none" stroke="url(#laceGradient)" stroke-width="1.5" opacity="0.6"/>
-        
-        <!-- Small bows on vertical ribbons -->
         <path d="M-40,25 Q-38,22 -36,25 Q-38,28 -40,25 Z" fill="url(#laceGradient)"/>
         <path d="M-20,25 Q-18,22 -16,25 Q-18,28 -20,25 Z" fill="url(#laceGradient)"/>
         <path d="M0,25 Q2,22 4,25 Q2,28 0,25 Z" fill="url(#laceGradient)"/>
         <path d="M20,25 Q22,22 24,25 Q22,28 20,25 Z" fill="url(#laceGradient)"/>
         <path d="M40,25 Q42,22 44,25 Q42,28 40,25 Z" fill="url(#laceGradient)"/>
-        
-        <!-- Pearl necklace -->
         <path d="M-12,-45 Q0,-50 12,-45" fill="none" stroke="url(#pearlGradient)" stroke-width="2"/>
         <circle cx="-8" cy="-47" r="1.5" fill="url(#pearlGradient)"/>
         <circle cx="0" cy="-48" r="2" fill="url(#pearlGradient)"/>
         <circle cx="8" cy="-47" r="1.5" fill="url(#pearlGradient)"/>
-        
-        <!-- Wrist cuffs with pearls -->
         <ellipse cx="-49" cy="0" rx="5" ry="8" fill="url(#laceGradient)" opacity="0.9"/>
         <ellipse cx="49" cy="0" rx="5" ry="8" fill="url(#laceGradient)" opacity="0.9"/>
         <circle cx="-49" cy="0" r="1.5" fill="url(#pearlGradient)"/>
         <circle cx="49" cy="0" r="1.5" fill="url(#pearlGradient)"/>
-        
-        <!-- Frilly socks with lace tops -->
         <path d="M-12,95 Q-7,90 -2,95" fill="none" stroke="url(#laceGradient)" stroke-width="2.5" opacity="0.9"/>
         <path d="M2,95 Q7,90 12,95" fill="none" stroke="url(#laceGradient)" stroke-width="2.5" opacity="0.9"/>
-        
         <path d="M-12,105 Q-7,100 -2,105" fill="none" stroke="url(#laceGradient)" stroke-width="2" opacity="0.8"/>
         <path d="M2,105 Q7,100 12,105" fill="none" stroke="url(#laceGradient)" stroke-width="2" opacity="0.8"/>
     </g>
-    
-    <!-- Decorative corner elements with Angelic Pretty style -->
     <g opacity="0.8">
-        <!-- Top-left decorative element -->
         <circle cx="50" cy="50" r="12" fill="none" stroke="#ff85a2" stroke-width="1.5"/>
         <circle cx="50" cy="50" r="8" fill="none" stroke="url(#laceGradient)" stroke-width="1"/>
         <circle cx="50" cy="50" r="4" fill="url(#pearlGradient)"/>
-        
-        <!-- Top-right decorative element -->
         <circle cx="350" cy="50" r="12" fill="none" stroke="#ff85a2" stroke-width="1.5"/>
         <circle cx="350" cy="50" r="8" fill="none" stroke="url(#laceGradient)" stroke-width="1"/>
         <circle cx="350" cy="50" r="4" fill="url(#pearlGradient)"/>
-        
-        <!-- Bottom-left decorative element -->
         <circle cx="50" cy="350" r="12" fill="none" stroke="#ff85a2" stroke-width="1.5"/>
         <circle cx="50" cy="350" r="8" fill="none" stroke="url(#laceGradient)" stroke-width="1"/>
         <circle cx="50" cy="350" r="4" fill="url(#pearlGradient)"/>
-        
-        <!-- Bottom-right decorative element -->
         <circle cx="350" cy="350" r="12" fill="none" stroke="#ff85a2" stroke-width="1.5"/>
         <circle cx="350" cy="350" r="8" fill="none" stroke="url(#laceGradient)" stroke-width="1"/>
         <circle cx="350" cy="350" r="4" fill="url(#pearlGradient)"/>
