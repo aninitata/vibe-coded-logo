@@ -1,0 +1,34 @@
+﻿<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="lensGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4DA6FF"/>
+      <stop offset="100%" stop-color="#0066CC"/>
+    </linearGradient>
+    <linearGradient id="fovGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF6B6B"/>
+      <stop offset="100%" stop-color="#CC0000"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background Circle -->
+  <circle cx="100" cy="100" r="85" fill="#f0f8ff" stroke="#e0e0e0" stroke-width="2"/>
+  
+  <!-- Camera Lens Representation -->
+  <circle cx="100" cy="100" r="40" fill="url(#lensGrad)" opacity="0.8"/>
+  <circle cx="100" cy="100" r="30" fill="none" stroke="white" stroke-width="3"/>
+  <circle cx="100" cy="100" r="15" fill="none" stroke="white" stroke-width="2"/>
+  
+  <!-- Field of View Arcs -->
+  <path d="M 100 30 A 70 70 0 0 1 170 100" fill="none" stroke="url(#fovGrad)" stroke-width="8" stroke-linecap="round"/>
+  <path d="M 100 30 A 70 70 0 0 0 30 100" fill="none" stroke="url(#fovGrad)" stroke-width="8" stroke-linecap="round"/>
+  
+  <!-- Focal Length Indicator -->
+  <line x1="100" y1="60" x2="100" y2="140" stroke="#333" stroke-width="4" stroke-dasharray="5,3"/>
+  
+  <!-- Central Focus Point -->
+  <circle cx="100" cy="100" r="5" fill="#FFD700" stroke="#333" stroke-width="2"/>
+  
+  <!-- Angle Markers -->
+  <line x1="85" y1="25" x2="90" y2="30" stroke="#FF6B6B" stroke-width="3"/>
+  <line x1="115" y1="25" x2="110" y2="30" stroke="#FF6B6B" stroke-width="3"/>
+</svg>
