@@ -1,189 +1,102 @@
 <svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
     <defs>
-        <!-- Enhanced gradient with cyberpunk colors -->
+        <!-- Soft, warm gradient like a summer sky -->
         <linearGradient id="mainGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#FF00FF" stop-opacity="0.9"/>
-            <stop offset="50%" stop-color="#00FFFF" stop-opacity="0.8"/>
-            <stop offset="100%" stop-color="#FF00FF" stop-opacity="0.9"/>
+            <stop offset="0%" stop-color="#FFE8F0" stop-opacity="0.9"/> <!-- Blush Pink -->
+            <stop offset="50%" stop-color="#E6F7FF" stop-opacity="0.8"/> <!-- Soft Blue -->
+            <stop offset="100%" stop-color="#FFF0E6" stop-opacity="0.9"/> <!-- Cream -->
         </linearGradient>
 
-        <!-- Premium glass morphism effect -->
-        <filter id="glassEffect" x="-20%" y="-20%" width="140%" height="140%">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur"/>
-            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 15 -5" result="glass"/>
-            <feBlend in="SourceGraphic" in2="glass" mode="overlay"/>
-        </filter>
-
-        <!-- Optimized multi-color glow -->
-        <filter id="multiGlow" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur in="SourceAlpha" stdDeviation="8" result="blur"/>
-            <feFlood flood-color="#FF00FF" flood-opacity="0.5" result="glowColor1"/>
-            <feComposite in="glowColor1" in2="blur" operator="in" result="glow1"/>
-            <feFlood flood-color="#00FFFF" flood-opacity="0.5" result="glowColor2"/>
-            <feComposite in="glowColor2" in2="blur" operator="in" result="glow2"/>
-            <feMerge>
-                <feMergeNode in="glow1"/>
-                <feMergeNode in="glow2"/>
-                <feMergeNode in="SourceGraphic"/>
-            </feMerge>
-        </filter>
-
-        <!-- Organic grid pattern -->
-        <pattern id="organicGrid" width="60" height="60" patternUnits="userSpaceOnUse">
-            <path d="M 0 30 Q 15 15 30 30 T 60 30 M 30 0 Q 45 15 30 30 T 30 60" fill="none" stroke="#1A1A40" stroke-width="1" opacity="0.2"/>
+        <!-- Gingham pattern for the background -->
+        <pattern id="ginghamPattern" width="20" height="20" patternUnits="userSpaceOnUse">
+            <rect width="20" height="20" fill="#FFF5F5"/>
+            <path d="M0 0 L20 0 L20 20" fill="none" stroke="#FFE8E8" stroke-width="4"/>
+            <path d="M0 0 L0 20 L20 20" fill="none" stroke="#FFE8E8" stroke-width="4"/>
         </pattern>
 
-        <!-- Smoother blob shape -->
-        <clipPath id="blobClip">
-            <path d="M200,100 Q270,80 290,150 Q310,220 270,290 Q200,340 130,290 Q90,220 110,150 Q130,80 200,100 Z"/>
+        <!-- A simple, soft glow -->
+        <filter id="softGlow">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur"/>
+            <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 15 -5" result="glow"/>
+            <feBlend in="SourceGraphic" in2="glow" mode="soft-light"/>
+        </filter>
+
+        <!-- Clip path for the main circle -->
+        <clipPath id="circleClip">
+            <circle cx="200" cy="200" r="130"/>
         </clipPath>
     </defs>
 
-    <!-- Background -->
-    <rect width="400" height="400" fill="#0F0F2A"/>
-    <rect width="400" height="400" fill="url(#organicGrid)" opacity="0.5"/>
+    <!-- Background: Gingham -->
+    <rect width="400" height="400" fill="url(#ginghamPattern)"/>
 
-    <!-- Glass morphism panel -->
-    <rect x="40" y="40" width="320" height="320" rx="40" fill="rgba(255,255,255,0.08)" filter="url(#glassEffect)" opacity="0.85"/>
+    <!-- Soft, warm background circle -->
+    <circle cx="200" cy="200" r="150" fill="url(#mainGradient)" opacity="0.7" filter="url(#softGlow)"/>
 
-    <!-- Central blob with animated gradient -->
-    <g clip-path="url(#blobClip)">
-        <rect x="70" y="70" width="260" height="260" fill="url(#mainGradient)" opacity="0.4">
-            <animate attributeName="opacity" values="0.4;0.7;0.4" dur="6s" repeatCount="indefinite"/>
-            <animateTransform attributeName="transform" type="rotate" from="0 200 200" to="360 200 200" dur="20s" repeatCount="indefinite"/>
-        </rect>
+    <!-- Central imagery: A heart and a rolling pin -->
+    <g clip-path="url(#circleClip)" filter="url(#softGlow)">
+        <!-- Soft, swirling pattern reminiscent of rolling dough -->
+        <path d="M150,180 Q200,150 250,180 Q280,200 250,230 Q200,260 150,230 Q120,200 150,180 Z" fill="none" stroke="#FFB6C1" stroke-width="8" stroke-linecap="round" opacity="0.6">
+            <animate attributeName="d" dur="10s" values="
+                M150,180 Q200,150 250,180 Q280,200 250,230 Q200,260 150,230 Q120,200 150,180 Z;
+                M155,175 Q200,155 245,185 Q275,205 245,225 Q200,255 155,225 Q125,205 155,175 Z;
+                M150,180 Q200,150 250,180 Q280,200 250,230 Q200,260 150,230 Q120,200 150,180 Z" repeatCount="indefinite"/>
+        </path>
 
-        <!-- Enhanced particle field -->
-        <g opacity="0.8">
-            <circle cx="170" cy="150" r="2" fill="#FF00FF">
-                <animate attributeName="cx" values="170;180;170" dur="3s" repeatCount="indefinite"/>
-                <animate attributeName="cy" values="150;160;150" dur="4s" repeatCount="indefinite"/>
-                <animate attributeName="r" values="2;3;2" dur="2s" repeatCount="indefinite"/>
+        <!-- A simple heart -->
+        <path d="M200 180 Q220 160 240 180 Q240 200 220 220 L200 240 L180 220 Q160 200 160 180 Q180 160 200 180 Z" fill="#FF69B4" opacity="0.8">
+            <animate attributeName="opacity" values="0.8;0.9;0.8" dur="4s" repeatCount="indefinite"/>
+        </path>
+
+        <!-- Floating "spice" or "flour" particles -->
+        <g opacity="0.7">
+            <circle cx="170" cy="150" r="2" fill="#A0522D"> <!-- Sienna Brown -->
+                <animate attributeName="cy" values="150;170;150" dur="5s" repeatCount="indefinite"/>
             </circle>
-            <circle cx="230" cy="230" r="2" fill="#00FFFF">
-                <animate attributeName="cx" values="230;220;230" dur="4s" repeatCount="indefinite"/>
-                <animate attributeName="cy" values="230;220;230" dur="3s" repeatCount="indefinite"/>
-                <animate attributeName="r" values="2;3;2" dur="2.5s" repeatCount="indefinite"/>
+            <circle cx="230" cy="230" r="2" fill="#DEB887"> <!-- Burly Wood -->
+                <animate attributeName="cy" values="230;250;230" dur="4s" repeatCount="indefinite"/>
             </circle>
-            <circle cx="150" cy="210" r="2" fill="#FFFFFF">
-                <animate attributeName="cx" values="150;140;150" dur="5s" repeatCount="indefinite"/>
-                <animate attributeName="cy" values="210;200;210" dur="4s" repeatCount="indefinite"/>
-                <animate attributeName="r" values="2;3;2" dur="3s" repeatCount="indefinite"/>
+            <circle cx="150" cy="210" r="2" fill="#A0522D">
+                <animate attributeName="cy" values="210;230;210" dur="6s" repeatCount="indefinite"/>
             </circle>
         </g>
     </g>
 
-    <!-- Outer neon ring -->
-    <circle cx="200" cy="200" r="140" fill="none" stroke="url(#mainGradient)" stroke-width="4" opacity="0.6" filter="url(#multiGlow)">
-        <animate attributeName="r" values="140;145;140" dur="5s" repeatCount="indefinite"/>
-        <animate attributeName="opacity" values="0.6;0.8;0.6" dur="5s" repeatCount="indefinite"/>
+    <!-- Outer ring, like a pie crust or embroidered edge -->
+    <circle cx="200" cy="200" r="140" fill="none" stroke="#DEB887" stroke-width="6" stroke-dasharray="5,5" opacity="0.8">
+        <animateTransform attributeName="transform" type="rotate" from="0 200 200" to="360 200 200" dur="30s" repeatCount="indefinite"/>
     </circle>
 
-    <!-- Central orb -->
-    <circle cx="200" cy="200" r="60" fill="none" stroke="#FFFFFF" stroke-width="3" opacity="0.9" filter="url(#multiGlow)">
-        <animate attributeName="r" values="60;63;60" dur="4s" repeatCount="indefinite"/>
-        <animate attributeName="stroke-opacity" values="0.9;0.7;0.9" dur="4s" repeatCount="indefinite"/>
-    </circle>
+    <!-- Main text in a soft, script-like style -->
+    <text x="200" y="320" text-anchor="middle" font-family="cursive" font-size="28" fill="#8B4513" opacity="0.9" font-weight="bold">
+        Homemade Heart
+        <animate attributeName="opacity" values="0.9;0.7;0.9" dur="4s" repeatCount="indefinite"/>
+    </text>
 
-    <!-- Dynamic crosshair -->
-    <g opacity="0.85">
-        <line x1="180" y1="200" x2="220" y2="200" stroke="#FFFFFF" stroke-width="2.5">
-            <animate attributeName="x1" values="180;175;180" dur="2.5s" repeatCount="indefinite"/>
-            <animate attributeName="x2" values="220;225;220" dur="2.5s" repeatCount="indefinite"/>
-        </line>
-        <line x1="200" y1="180" x2="200" y2="220" stroke="#FFFFFF" stroke-width="2.5">
-            <animate attributeName="y1" values="180;175;180" dur="2.5s" repeatCount="indefinite"/>
-            <animate attributeName="y2" values="220;225;220" dur="2.5s" repeatCount="indefinite"/>
-        </line>
-    </g>
+    <!-- Subtext -->
+    <text x="200" y="355" text-anchor="middle" font-family="serif" font-size="16" fill="#A0522D" opacity="0.9" font-style="italic">
+        Baked with Love
+    </text>
 
-    <!-- Central point -->
-    <circle cx="200" cy="200" r="5" fill="#FFFFFF" filter="url(#multiGlow)">
-        <animate attributeName="r" values="5;7;5" dur="1.5s" repeatCount="indefinite"/>
-    </circle>
-
-    <!-- Dynamic focal lines -->
-    <g opacity="0.75">
-        <line x1="200" y1="200" x2="310" y2="200" stroke="#FF00FF" stroke-width="2" stroke-dasharray="5,3">
-            <animate attributeName="stroke-dashoffset" values="0;8;0" dur="2s" repeatCount="indefinite"/>
-        </line>
-        <line x1="200" y1="200" x2="310" y2="200" stroke="#00FFFF" stroke-width="1.5" stroke-dasharray="3,5" opacity="0.6">
-            <animate attributeName="stroke-dashoffset" values="8;0;8" dur="2s" repeatCount="indefinite"/>
-        </line>
-    </g>
-
-    <!-- Focal point -->
-    <circle cx="310" cy="200" r="5" fill="#00FFFF" filter="url(#multiGlow)">
-        <animate attributeName="r" values="5;7;5" dur="1.5s" repeatCount="indefinite"/>
-    </circle>
-
-    <!-- Dynamic angle indicators -->
+    <!-- Corner accents: Little flourishes -->
     <g opacity="0.8">
-        <line x1="200" y1="200" x2="290" y2="180" stroke="#FF00FF" stroke-width="2.5">
-            <animate attributeName="x2" values="290;295;290" dur="4s" repeatCount="indefinite"/>
-            <animate attributeName="y2" values="180;175;180" dur="4s" repeatCount="indefinite"/>
-        </line>
-        <line x1="200" y1="200" x2="290" y2="220" stroke="#00FFFF" stroke-width="2.5">
-            <animate attributeName="x2" values="290;295;290" dur="4s" repeatCount="indefinite"/>
-            <animate attributeName="y2" values="220;225;220" dur="4s" repeatCount="indefinite"/>
-        </line>
-    </g>
-
-    <!-- Enhanced arc -->
-    <path d="M 260 190 A 35 35 0 0 1 260 210" fill="none" stroke="#FFFFFF" stroke-width="2.5" opacity="0.85">
-        <animate attributeName="d" values="M 260 190 A 35 35 0 0 1 260 210; M 260 188 A 37 37 0 0 1 260 212; M 260 190 A 35 35 0 0 1 260 210" dur="5s" repeatCount="indefinite"/>
-    </path>
-
-    <!-- Main typography -->
-    <text x="200" y="330" text-anchor="middle" font-family="'Orbitron', sans-serif" font-size="24" font-weight="600" fill="#FFFFFF" opacity="0.95" letter-spacing="1.5">
-        SKIBIDI MAXXING
-        <animate attributeName="opacity" values="0.95;0.65;0.95" dur="4s" repeatCount="indefinite"/>
-        <animate attributeName="letter-spacing" values="1.5;2;1.5" dur="6s" repeatCount="indefinite"/>
-    </text>
-
-    <!-- Artist name -->
-    <text x="200" y="355" text-anchor="middle" font-family="'Orbitron', sans-serif" font-size="14" font-weight="400" fill="#00FFFF" opacity="0.9" letter-spacing="2">
-        OMGYATTTT
-        <animate attributeName="opacity" values="0.9;0.7;0.9" dur="5s" repeatCount="indefinite"/>
-    </text>
-
-    <!-- Corner accents -->
-    <g opacity="0.7">
-        <!-- Top-left -->
-        <g filter="url(#multiGlow)">
-            <line x1="40" y1="40" x2="60" y2="40" stroke="#FF00FF" stroke-width="2">
-                <animate attributeName="x2" values="60;65;60" dur="3s" repeatCount="indefinite"/>
-            </line>
-            <line x1="40" y1="40" x2="40" y2="60" stroke="#FF00FF" stroke-width="2">
-                <animate attributeName="y2" values="60;65;60" dur="3s" repeatCount="indefinite"/>
-            </line>
+        <!-- Top-left: A simple flower -->
+        <g transform="translate(50, 50) scale(0.8)">
+            <circle cx="0" cy="0" r="5" fill="#FF69B4"/>
+            <circle cx="0" cy="0" r="8" fill="none" stroke="#FFB6C1" stroke-width="2"/>
         </g>
-        <!-- Top-right -->
-        <g filter="url(#multiGlow)">
-            <line x1="360" y1="40" x2="340" y2="40" stroke="#00FFFF" stroke-width="2">
-                <animate attributeName="x2" values="340;335;340" dur="3s" repeatCount="indefinite"/>
-            </line>
-            <line x1="360" y1="40" x2="360" y2="60" stroke="#00FFFF" stroke-width="2">
-                <animate attributeName="y2" values="60;65;60" dur="3s" repeatCount="indefinite"/>
-            </line>
+        <!-- Top-right: A little star (like on a pie) -->
+        <g transform="translate(350, 50)">
+            <path d="M0,-5 L2,2 L5,0 L0,0 L-2,2 Z" fill="#FFD700"/>
         </g>
-        <!-- Bottom-left -->
-        <g filter="url(#multiGlow)">
-            <line x1="40" y1="360" x2="60" y2="360" stroke="#FFFFFF" stroke-width="2">
-                <animate attributeName="x2" values="60;65;60" dur="3s" repeatCount="indefinite"/>
-            </line>
-            <line x1="40" y1="360" x2="40" y2="340" stroke="#FFFFFF" stroke-width="2">
-                <animate attributeName="y2" values="340;335;340" dur="3s" repeatCount="indefinite"/>
-            </line>
+        <!-- Bottom-left: A heart -->
+        <g transform="translate(50, 350)">
+            <path d="M0,0 Q2,-2 4,0 Q4,2 2,4 L0,6 L-2,4 Q-4,2 -4,0 Q-2,-2 0,0 Z" fill="#FF69B4" opacity="0.7"/>
         </g>
-        <!-- Bottom-right -->
-        <g filter="url(#multiGlow)">
-            <line x1="360" y1="360" x2="340" y2="360" stroke="#FF00FF" stroke-width="2">
-                <animate attributeName="x2" values="340;335;340" dur="3s" repeatCount="indefinite"/>
-            </line>
-            <line x1="360" y1="360" x2="360" y2="340" stroke="#FF00FF" stroke-width="2">
-                <animate attributeName="y2" values="340;335;340" dur="3s" repeatCount="indefinite"/>
-            </line>
+        <!-- Bottom-right: Another flower -->
+        <g transform="translate(350, 350) scale(0.8)">
+            <circle cx="0" cy="0" r="5" fill="#FF69B4"/>
+            <circle cx="0" cy="0" r="8" fill="none" stroke="#FFB6C1" stroke-width="2"/>
         </g>
     </g>
 </svg>
